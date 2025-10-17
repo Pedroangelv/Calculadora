@@ -1,15 +1,18 @@
-
-
-
-function sum() {
-  
-  
-
-  let y1 = document.getElementById("n1").value;
-  let x2 = document.getElementById("n2").value;
-
-  n1 = parseInt(y1);
-  n2 = parseInt(x2);
-  let resultadoDiv = document.getElementById("Resultado");
-  resultadoDiv.innerHTML = `<h1>${n1 + n2}</h1>`;
+function resultado() {
+  const input = document.getElementById("n");
+  if (!input) {
+    console.error('Element with id "n" not found');
+    return;
+  }
+  const expr = input.value;
+  try {
+    const x = eval(expr);
+    const resultadoDiv = document.getElementById("Resultado");
+    if (resultadoDiv) resultadoDiv.innerHTML = `<h1>${x}</h1>`;
+  } catch (e) {
+    console.error(e);
+    const resultadoDiv = document.getElementById("Resultado");
+    if (resultadoDiv) resultadoDiv.innerHTML = `<h1>Error</h1>`;
+  }
 }
+// 
